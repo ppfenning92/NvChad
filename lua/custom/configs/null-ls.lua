@@ -21,7 +21,6 @@ local opts = {
       })
     end
   end
-
 }
 
 return opts
