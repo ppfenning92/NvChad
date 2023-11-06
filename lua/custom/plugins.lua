@@ -26,9 +26,17 @@ local plugins = {
         "typescript-language-server",
         "eslint-lsp",
         "prettier",
+
         "lua-language-server",
 
-        "rust-analyzer"
+        "rust-analyzer",
+
+        "angular-language-server",
+
+        "ansible-language-server",
+        "ansible-lint",
+
+        "gopls"
       }
     }
   },
@@ -45,6 +53,38 @@ local plugins = {
     ft = "rust",
     init = function()
       vim.g.rustfmt_autosave = 1
+    end
+  },
+  {
+    "saecki/crates.nvim",
+    depedencies = "hrsh7th/nvim-cmp",
+    ft = {"rust", "toml"},
+    config = function (_, opts)
+      local crates = require("crates")
+      crates.setup(opts)
+      crates.show()
+    end
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function ()
+      local M = require "plugins.configs.cmp"
+      table.insert(M.sources, {name = "crates"})
+      return M
+    end
+  },
+  -- {
+  --   "simrat39/rust-tools.nvim",
+  -- },
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function (_,opts)
+      require("gopher").setup(opts)
+    end,
+    build = function ()
+      vim.cmd [[silent! GoInstallDeps]]
     end
   }
 }

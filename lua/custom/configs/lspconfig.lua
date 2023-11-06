@@ -16,6 +16,30 @@ lspconfig.tsserver.setup {
   }
 }
 
+
+lspconfig.angularls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  root_dir = util.root_pattern("angular.json")
+}
+
+lspconfig.gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {"gopls"},
+  filetypes = {"go", "gomod", "gowork", "gotmpl"},
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      }
+    }
+  }
+}
+
 lspconfig.rust_analyzer.setup({
   on_attach = on_attach,
   capabilities = capabilities,
