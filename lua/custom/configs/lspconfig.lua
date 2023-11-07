@@ -20,7 +20,7 @@ lspconfig.tsserver.setup {
 lspconfig.angularls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  root_dir = util.root_pattern("angular.json")
+  root_dir = util.root_pattern("angular.json", ".angular"),
 }
 
 lspconfig.gopls.setup {

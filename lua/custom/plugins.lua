@@ -31,12 +31,13 @@ local plugins = {
 
         "rust-analyzer",
 
-        "angular-language-server",
+        "angular-language-server@15.2.1",
 
         "ansible-language-server",
         "ansible-lint",
 
-        "gopls"
+        "gopls",
+        "nginx-language-server",
       }
     }
   },
@@ -74,6 +75,14 @@ local plugins = {
       return M
     end
   },
+  { "folke/neodev.nvim" },
+
+			-- Autocompletion
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lua" },
   -- {
   --   "simrat39/rust-tools.nvim",
   -- },
