@@ -16,6 +16,24 @@ lspconfig.tsserver.setup {
   }
 }
 
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"python"},
+on_new_config = function(new_config, root_dir)
+        local pipfile_exists = util.search_ancestors(root_dir, function(path)
+          local pipfile = util.path.join(path, "Pipfile")
+          if util.path.is_file(pipfile) then
+            return true
+          else
+            return false
+          end
+        end)
+        if pipfile_exists then
+          new_config.cmd = { "pipenv", "run", "pyright-langserver", "--stdio" }
+        end
+      end,
+}
 
 lspconfig.angularls.setup {
   on_attach = on_attach,
