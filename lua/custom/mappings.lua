@@ -7,14 +7,23 @@ M.general = {
   },
 
   n = {
-    ["<leader>re"] = {
+    ["<leader>rs"] = {
       function ()
         local pos = vim.api.nvim_win_get_cursor(0)[2]
         local line = vim.api.nvim_get_current_line()
         local nline = line:sub(0, pos) .. utils.randomString(8) .. line:sub(pos + 1)
         vim.api.nvim_set_current_line(nline)
       end,
-      "Generate random"
+      "Generate random string of lenth 8"
+    },
+    ["<leader>rc"] = {
+      function ()
+        local pos = vim.api.nvim_win_get_cursor(0)[2]
+        local line = vim.api.nvim_get_current_line()
+        local nline = line:sub(0, pos) .. utils.randomString(8, '0123456789') .. line:sub(pos + 1)
+        vim.api.nvim_set_current_line(nline)
+      end,
+      "Generate random numeric code of length 8"
     }
   }
 }
