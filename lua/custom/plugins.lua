@@ -30,7 +30,7 @@ local plugins = {
         "lua-language-server",
 
         "rust-analyzer",
-        
+
         "angular-language-server@15.2.1",
 
         "ansible-language-server",
