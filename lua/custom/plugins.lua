@@ -16,11 +16,12 @@ local plugins = {
   {
     "jose-elias-alvarez/null-ls.nvim",
     event = "VeryLazy",
-    opts = function ()
+    opts = function()
       return require "custom.configs.null-ls"
     end,
   },
-  {"williamboman/mason.nvim",
+  {
+    "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
         "typescript-language-server",
@@ -43,11 +44,11 @@ local plugins = {
         "mypy",
         "ruff",
         "black",
-        "pyright"
-      }
-    }
+        "pyright",
+      },
+    },
   },
-  {"mfussenegger/nvim-ansible"},
+  { "mfussenegger/nvim-ansible" },
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -60,47 +61,47 @@ local plugins = {
     ft = "rust",
     init = function()
       vim.g.rustfmt_autosave = 1
-    end
+    end,
   },
   {
     "saecki/crates.nvim",
     depedencies = "hrsh7th/nvim-cmp",
-    ft = {"rust", "toml"},
-    config = function (_, opts)
-      local crates = require("crates")
+    ft = { "rust", "toml" },
+    config = function(_, opts)
+      local crates = require "crates"
       crates.setup(opts)
       crates.show()
-    end
+    end,
   },
 
   {
     "hrsh7th/nvim-cmp",
-    opts = function ()
+    opts = function()
       local M = require "plugins.configs.cmp"
-      table.insert(M.sources, {name = "crates"})
+      table.insert(M.sources, { name = "crates" })
       return M
-    end
+    end,
   },
   { "folke/neodev.nvim" },
 
-			-- Autocompletion
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "saadparwaiz1/cmp_luasnip" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-nvim-lua" },
+  -- Autocompletion
+  { "hrsh7th/cmp-buffer" },
+  { "hrsh7th/cmp-path" },
+  { "saadparwaiz1/cmp_luasnip" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/cmp-nvim-lua" },
   -- {
   --   "simrat39/rust-tools.nvim",
   -- },
   {
     "olexsmir/gopher.nvim",
     ft = "go",
-    config = function (_,opts)
+    config = function(_, opts)
       require("gopher").setup(opts)
     end,
-    build = function ()
+    build = function()
       vim.cmd [[silent! GoInstallDeps]]
-    end
-  }
+    end,
+  },
 }
 return plugins
