@@ -21,6 +21,18 @@ local plugins = {
     end,
   },
   {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+  },
+  {
+    "f-person/git-blame.nvim",
+    event = "VeryLazy"
+  },
+  {
+    "kevinhwang91/nvim-bqf",
+  event = "VeryLazy"
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
