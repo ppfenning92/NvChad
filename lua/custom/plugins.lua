@@ -23,6 +23,11 @@ local plugins = {
   {
     "kylechui/nvim-surround",
     event = "VeryLazy",
+     config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
   },
   {
     "f-person/git-blame.nvim",
