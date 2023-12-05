@@ -29,6 +29,7 @@ local plugins = {
         })
     end
   },
+  {"marilari88/twoslash-queries.nvim", event = "VeryLazy"},
   {
     "f-person/git-blame.nvim",
     event = "VeryLazy"
