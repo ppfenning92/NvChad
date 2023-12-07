@@ -121,5 +121,9 @@ local plugins = {
       vim.cmd [[silent! GoInstallDeps]]
     end,
   },
+  {
+    "christoomey/vim-tmux-navigator",
+  lazy = false,
+  },
 }
 return plugins
