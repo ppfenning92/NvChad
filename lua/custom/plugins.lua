@@ -29,6 +29,7 @@ local plugins = {
       }
     end,
   },
+  { "marilari88/twoslash-queries.nvim", event = "VeryLazy" },
   {
     "f-person/git-blame.nvim",
     event = "VeryLazy",
@@ -121,5 +122,9 @@ local plugins = {
   },
   { "mfussenegger/nvim-ansible", ft = { "yaml.ansible" } },
   { "pearofducks/ansible-vim", ft = { "yaml.ansible" } },
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
 }
 return plugins

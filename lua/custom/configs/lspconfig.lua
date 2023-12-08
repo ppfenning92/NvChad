@@ -7,7 +7,10 @@ local capabilities = config.capabilities
 local lspconfig = require "lspconfig"
 
 lspconfig.tsserver.setup {
-  on_attach = on_attach,
+  on_attach = function (client, bufnr)
+    on_attach(client, bufnr)
+     require("twoslash-queries").attach(client, bufnr)
+  end,
   capabilities = capabilities,
   init_options = {
     preferences = {
