@@ -22,20 +22,20 @@ local plugins = {
   },
   {
     "kylechui/nvim-surround",
-    event = "VeryLazy",
-     config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
-    end
+    lazy = false,
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
   },
   {
     "f-person/git-blame.nvim",
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
   {
     "kevinhwang91/nvim-bqf",
-  event = "VeryLazy"
+    event = "VeryLazy",
   },
   {
     "williamboman/mason.nvim",
@@ -65,7 +65,6 @@ local plugins = {
       },
     },
   },
-  { "mfussenegger/nvim-ansible" },
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -120,5 +119,7 @@ local plugins = {
       vim.cmd [[silent! GoInstallDeps]]
     end,
   },
+  { "mfussenegger/nvim-ansible", ft = { "yaml.ansible" } },
+  { "pearofducks/ansible-vim", ft = { "yaml.ansible" } },
 }
 return plugins
