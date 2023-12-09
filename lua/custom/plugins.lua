@@ -126,5 +126,10 @@ local plugins = {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
+  {
+    "mg979/vim-visual-multi",
+    event = "VeryLazy",
+  },
 }
+
 return plugins

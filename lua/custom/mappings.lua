@@ -32,6 +32,18 @@ M.general = {
   },
 }
 
+M.nvimtree = {
+  plugin = true,
+
+  n = {
+    -- toggle
+    ["<A-n>"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
+
+    -- focus
+    ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
+  },
+}
+
 M.comment = {
 
   i = {
