@@ -130,6 +130,7 @@ local plugins = {
     "mg979/vim-visual-multi",
     event = "VeryLazy",
   },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 }
 
 return plugins
