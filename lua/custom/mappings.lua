@@ -3,6 +3,7 @@ local utils = require "custom.utils"
 local M = {}
 M.general = {
   i = {
+    -- ["<F13>"] = { "<cmd> :Copilot#Accept('<CR>')<CR>", "accept copilot suggestion" },
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
   },
 
