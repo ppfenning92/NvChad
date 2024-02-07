@@ -52,7 +52,7 @@ local plugins = {
 
         "rust-analyzer",
 
-        "angular-language-server@15.2.1",
+        "angular-language-server",
 
         "ansible-language-server",
         "ansible-lint",
