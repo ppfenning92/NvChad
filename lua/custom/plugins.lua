@@ -184,6 +184,7 @@ local plugins = {
       { "ga.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "v" }, desc = "Telescope" },
     },
   },
+  { "xiyaowong/nvim-transparent", event = "VeryLazy" },
 }
 
 return plugins
