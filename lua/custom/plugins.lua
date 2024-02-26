@@ -13,6 +13,23 @@ local plugins = {
   --     return require "custom.configs.formatter"
   --   end
   -- },
+  {
+    "nvim-tree/nvim-tree.lua",
+    -- cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    -- init = function()
+    --   require("core.utils").load_mappings "nvimtree"
+    -- end,
+    opts = {
+      view = {
+        -- width = 30,
+        -- side = "right",
+        adaptive_size = true,
+      },
+    }, -- config = function(_, opts)
+    --   dofile(vim.g.base46_cache .. "nvimtree")
+    --   require("nvim-tree").setup(opts)
+    -- end,
+  },
   { "github/copilot.vim", event = "VeryLazy" },
   {
     "jose-elias-alvarez/null-ls.nvim",
