@@ -30,7 +30,7 @@ local plugins = {
     --   require("nvim-tree").setup(opts)
     -- end,
   },
-  { "github/copilot.vim", event = "VeryLazy" },
+  { "github/copilot.vim",               event = "VeryLazy" },
   {
     "jose-elias-alvarez/null-ls.nvim",
     event = "VeryLazy",
@@ -138,12 +138,12 @@ local plugins = {
     opts = function()
       local M = require "plugins.configs.cmp"
       table.insert(M.sources, {
-        { name = "copilot", group_index = 1 },
+        { name = "copilot",  group_index = 1 },
         { name = "nvim_lsp", group_index = 2 },
-        { name = "luasnip", group_index = 2 },
-        { name = "buffer", group_index = 2 },
+        { name = "luasnip",  group_index = 2 },
+        { name = "buffer",   group_index = 2 },
         { name = "nvim_lua", group_index = 2 },
-        { name = "path", group_index = 2 },
+        { name = "path",     group_index = 2 },
       })
       return M
     end,
@@ -170,7 +170,7 @@ local plugins = {
     end,
   },
   { "mfussenegger/nvim-ansible", ft = { "yaml.ansible" } },
-  { "pearofducks/ansible-vim", ft = { "yaml.ansible" } },
+  { "pearofducks/ansible-vim",   ft = { "yaml.ansible" } },
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
@@ -188,7 +188,7 @@ local plugins = {
     end,
     ft = { "markdown" },
   },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim",            name = "catppuccin", priority = 1000 },
   {
     "johmsalas/text-case.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
@@ -202,6 +202,37 @@ local plugins = {
     },
   },
   { "xiyaowong/nvim-transparent", event = "VeryLazy" },
+  {
+    "michaelrommel/nvim-silicon",
+    lazy = true,
+    cmd = "Silicon",
+    init = function()
+      local wk = require "which-key"
+      wk.register({
+        ["<leader>cs"] = { ":Silicon<CR>", "Silicon" },
+      }, { mode = "v" })
+    end,
+    config = function()
+      require("silicon").setup {
+        font = "0xProto Nerd Font Mono=34;Noto Color Emoji",
+        theme = "Nord",
+        background = "#616e88",
+        shadow_color = "#1e1e2e",
+        shadow_offset_y = 3,
+        shadow_offset_x = 1,
+        pad_horiz = 50,
+        pad_vert = 30,
+        tab_width = 2,
+        num_separator = "\u{258f} ",
+        no_round_corner = true,
+        to_clipboard = true,
+        window_title = function()
+          return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ":t")
+        end,
+        -- output = "test_code.png",
+      }
+    end,
+  },
 }
 
 return plugins
