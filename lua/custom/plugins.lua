@@ -235,6 +235,11 @@ local plugins = {
       }
     end,
   },
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
 }
 
 return plugins
