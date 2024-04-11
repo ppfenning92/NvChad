@@ -7,9 +7,9 @@ local capabilities = config.capabilities
 local lspconfig = require "lspconfig"
 
 lspconfig.tsserver.setup {
-  on_attach = function (client, bufnr)
+  on_attach = function(client, bufnr)
     on_attach(client, bufnr)
-     require("twoslash-queries").attach(client, bufnr)
+    require("twoslash-queries").attach(client, bufnr)
   end,
   capabilities = capabilities,
   init_options = {
@@ -39,7 +39,10 @@ lspconfig.pyright.setup {
 }
 
 lspconfig.angularls.setup {
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    client.server_capabilities.renameProvider = false
+  end,
   capabilities = capabilities,
   root_dir = util.root_pattern("angular.json", ".angular"),
 }
