@@ -7,6 +7,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 --   update_in_insert = true
 -- }
 
+vim.o.modeline = true
+vim.o.modelines = 5
+
 _G.OS = os.execute "uname -a" or "Windows"
 _G.IS_LINUX = OS == "Linux"
 _G.IS_WSL = IS_LINUX and OS:lower():find "microsoft" and true or false
