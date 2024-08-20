@@ -170,17 +170,17 @@ local plugins = {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      {
-        "zbirenbaum/copilot-cmp",
-        config = function()
-          require("copilot_cmp").setup()
-        end,
-      },
+      -- {
+      --   "zbirenbaum/copilot-cmp",
+      --   config = function()
+      --     require("copilot_cmp").setup()
+      --   end,
+      -- },
     },
     opts = function()
       local M = require "plugins.configs.cmp"
       table.insert(M.sources, {
-        { name = "copilot",  group_index = 1 },
+        -- { name = "copilot",  group_index = 1 },
         { name = "nvim_lsp", group_index = 2 },
         { name = "luasnip",  group_index = 2 },
         { name = "buffer",   group_index = 2 },
