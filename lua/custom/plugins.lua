@@ -72,7 +72,7 @@ local plugins = {
     --   require("nvim-tree").setup(opts)
     -- end,
   },
-  { "github/copilot.vim", event = "VeryLazy" },
+  -- { "github/copilot.vim", event = "VeryLazy" },
   {
     "jose-elias-alvarez/null-ls.nvim",
     event = "VeryLazy",
@@ -151,22 +151,22 @@ local plugins = {
       crates.show()
     end,
   },
-  {
-    "zbirenbaum/copilot.lua",
-    event = "InsertEnter",
-    cmd = "Copilot",
-    build = ":Copilot auth",
-    opts = {
-      -- Possible configurable fields can be found on:
-      -- https://github.com/zbirenbaum/copilot.lua#setup-and-configuration
-      suggestion = {
-        enable = true,
-      },
-      panel = {
-        enable = false,
-      },
-    },
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   event = "InsertEnter",
+  --   cmd = "Copilot",
+  --   build = ":Copilot auth",
+  --   opts = {
+  --     -- Possible configurable fields can be found on:
+  --     -- https://github.com/zbirenbaum/copilot.lua#setup-and-configuration
+  --     suggestion = {
+  --       enable = true,
+  --     },
+  --     panel = {
+  --       enable = false,
+  --     },
+  --   },
+  -- },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -180,12 +180,12 @@ local plugins = {
     opts = function()
       local M = require "plugins.configs.cmp"
       table.insert(M.sources, {
-        { name = "copilot", group_index = 1 },
+        { name = "copilot",  group_index = 1 },
         { name = "nvim_lsp", group_index = 2 },
-        { name = "luasnip", group_index = 2 },
-        { name = "buffer", group_index = 2 },
+        { name = "luasnip",  group_index = 2 },
+        { name = "buffer",   group_index = 2 },
         { name = "nvim_lua", group_index = 2 },
-        { name = "path", group_index = 2 },
+        { name = "path",     group_index = 2 },
       })
       return M
     end,
@@ -212,7 +212,7 @@ local plugins = {
     end,
   },
   { "mfussenegger/nvim-ansible", ft = { "yaml.ansible" } },
-  { "pearofducks/ansible-vim", ft = { "yaml.ansible" } },
+  { "pearofducks/ansible-vim",   ft = { "yaml.ansible" } },
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
@@ -232,7 +232,7 @@ local plugins = {
     end,
     ft = { "markdown" },
   },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim",            name = "catppuccin", priority = 1000 },
   {
     "johmsalas/text-case.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
