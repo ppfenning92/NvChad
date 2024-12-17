@@ -117,7 +117,7 @@ local plugins = {
         "ansible-lint",
 
         "gopls",
-
+        "terraform-ls",
         "nginx-language-server",
 
         "mypy",
@@ -257,19 +257,15 @@ local plugins = {
       }, { mode = "v" })
     end,
     config = function()
-      require("silicon").setup {
-        font = "0xProto Nerd Font Mono=34;Noto Color Emoji",
+      require("nvim-silicon").setup {
+        disable_defaults = true,
         theme = "Nord",
-        background = "#616e88",
-        shadow_color = "#1e1e2e",
-        shadow_offset_y = 3,
-        shadow_offset_x = 1,
-        pad_horiz = 50,
-        pad_vert = 30,
-        tab_width = 2,
-        num_separator = "\u{258f} ",
-        no_round_corner = true,
+        font = "0xProto=32",
+        num_separator = "| ",
         to_clipboard = true,
+        language = function()
+          return vim.bo.filetype
+        end,
         window_title = function()
           return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ":t")
         end,
@@ -277,11 +273,18 @@ local plugins = {
       }
     end,
   },
+  { 'echasnovski/mini.nvim', version = false },
   {
     "HiPhish/rainbow-delimiters.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
+  {
+    'xemptuous/sqlua.nvim',
+    lazy = true,
+    cmd = 'SQLua',
+    config = function() require('sqlua').setup() end
+  }
 }
 
 return plugins

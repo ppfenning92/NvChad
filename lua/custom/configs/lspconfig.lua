@@ -6,7 +6,7 @@ local capabilities = config.capabilities
 -- local util = require "lspconfig/util"
 local lspconfig = require "lspconfig"
 
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
     require("twoslash-queries").attach(client, bufnr)
@@ -83,4 +83,10 @@ lspconfig.rust_analyzer.setup {
       },
     },
   },
+}
+
+lspconfig.terraformls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "tf", "hcl" }
 }
